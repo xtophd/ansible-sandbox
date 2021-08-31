@@ -1,0 +1,27 @@
+
+
+all: 
+
+  vars:
+    pg_machine_spec: machine_no1
+    pg_platform_spec: platform_no2
+    pg_provision_spec: provision_no3
+
+
+
+
+myGroup1:
+  hosts:
+    node1:
+      pg_platform_spec: platform_no1
+      pg_provision_spec: provision_no1
+
+    node2:
+      pg_machine_spec: machine_no2
+      pg_provision_spec: provision_no2
+
+    node3:
+      pg_machine_spec: machine_no3
+      pg_platform_spec: platform_no3
+
+    node4:

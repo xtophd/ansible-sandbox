@@ -1,0 +1,102 @@
+---
+- hosts: myGroup1
+  gather_facts: no
+  tasks:
+
+
+
+    - delegate_to: localhost
+      block:
+
+
+
+        ##
+        ##        DEBUG OUTPUT
+        ##
+
+        - debug: msg="inventory_hostname={{ inventory_hostname }}"
+
+
+
+        ##
+        ##        Load variables
+        ##
+
+        - name: "main.yml : loading default parameters"
+          include_vars:
+            file: "./group_vars/all/{{ item }}"
+          loop:
+            - pg-default-platform.yml
+            - pg-default-machine.yml
+            - pg-default-provision.yml
+
+
+
+        - name: "main.yml : loading required parameters"
+          include_vars:
+            file: "../config/{{ item }}"
+          loop:
+            - pg-config.yml
+            - pg-config-platform.yml
+            - pg-config-machine.yml
+            - pg-config-provision.yml
+
+
+
+        ##
+        ##        Grafting Defaults on to pg_config
+        ##
+
+        - name: "main.yml : graft platform spec on to pg_config.spec.platform"
+          set_fact:
+            pg_config: "{{ pg_config | combine({'spec': {'platform': pg_default_platform[pg_platform_spec] }}, recursive=true) }}"
+        
+        - name: "main.yml : graft machine spec  on to pg_config.spec.platform"
+          set_fact:
+            pg_config: "{{ pg_config | combine({'spec': {'machine': pg_default_machine[pg_machine_spec] }}, recursive=true) }}"
+
+        - name: "main.yml : graft platform spec on to pg_config.spec.platform"
+          set_fact:
+            pg_config: "{{ pg_config | combine({'spec': {'provision': pg_default_provision[pg_provision_spec] }}, recursive=true) }}"
+
+
+
+        ##
+        ##        Copy custom values to pg_config, 
+        ##        keys MUST exist in pg_config otherwise 
+        ##        it is an invalid key/value and should
+        ##        be ignored
+        ##
+        ##        NOTE: ansible 2.9 does NOT provide 'list_merge' option for
+        ##              the combine() filter as later releases do.  Thus, to
+        ##              mimic the behaviour of right hash overriding the left
+        ##              hash, we use a 'when' test to determine if the key is
+        ##              undefined
+        ##
+
+        - name: "main.yml : copy custom platform values to pg_config"
+          set_fact:
+            pg_config: "{{ pg_config | combine({'spec': {'platform': {item.key: item.value}}}, recursive=true) }}"
+          loop: "{{ lookup('dict', pg_config_platform[pg_platform_spec] | default({}) ) }}"
+          when: pg_config.spec.platform[item.key] is defined
+
+        - name: "main.yml : copy custom machine values to pg_config"
+          set_fact:
+            pg_config: "{{ pg_config | combine({'spec': {'machine': {item.key: item.value}}}, recursive=true) }}"
+          loop: "{{ lookup('dict', pg_config_machine[pg_machine_spec] | default({}) ) }}"
+          when: pg_config.spec.machine[item.key] is defined
+
+        - name: "main.yml : copy custom provision values to pg_config"
+          set_fact:
+            pg_config: "{{ pg_config | combine({'spec': {'provision': {item.key: item.value}}}, recursive=true) }}"
+          loop: "{{ lookup('dict', pg_config_provision[pg_provision_spec] | default({}) ) }}"
+          when: pg_config.spec.provision[item.key] is defined
+
+
+
+        ##
+        ##        Show Final Results
+        ##
+
+        - debug: var=pg_config
+

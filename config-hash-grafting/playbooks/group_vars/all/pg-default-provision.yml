@@ -1,0 +1,73 @@
+pg_default_provision:
+
+  provision_no1:
+    default:         default
+    boot_iso:        default
+    repo_iso:        default
+    repos:
+        default:     default
+        appstream:
+            name:    default
+            subpath: default 
+            default: default
+        baseos:
+            name:    default
+            subpath: default 
+            default: default
+        depth_test:
+            level_1:
+                name:            default
+                level_2:
+                    name:        default
+                    level_3:
+                        name:    default
+                        default: default
+
+
+  provision_no2:
+    default:         default
+    boot_iso:        default
+    repo_iso:        default
+    repos:
+        default:     default
+        appstream:
+            name:    default
+            subpath: default 
+            default: default
+        baseos:
+            name:    default
+            subpath: default 
+            default: default
+        depth_test:
+            level_1:
+                name:            default
+                level_2:
+                    name:        default
+                    level_3:
+                        name:    default
+                        default: default
+
+
+  provision_no3:
+    default:         default
+    boot_iso:        default
+    repo_iso:        default
+    repos:
+        default:     default
+        appstream:
+            name:    default
+            subpath: default 
+            default: default
+        baseos:
+            name:    default
+            subpath: default
+            default: default
+        depth_test:
+            level_1:
+                name:            default
+                level_2:
+                    name:        default
+                    level_3:
+                        name:    default
+                        default: default
+

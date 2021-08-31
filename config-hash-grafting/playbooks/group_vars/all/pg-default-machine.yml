@@ -1,0 +1,23 @@
+pg_default_machine:
+
+  machine_no1:
+    method:   default
+    platform: default
+    network:  default
+    storage:  default
+    default:  default
+
+  machine_no2:
+    method:   default
+    platform: default
+    network:  default
+    storage:  default
+    default:  default
+
+  machine_no3:
+    method:   default
+    platform: default
+    network:  default
+    storage:  default
+    default:  default
+

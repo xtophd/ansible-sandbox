@@ -1,0 +1,59 @@
+pg_config_provision:
+
+  provision_no1:
+    boot_iso:        node1
+    repo_iso:        node1
+    bad_variable:    bad_variable
+    repos:
+        appstream:
+            name:    node1
+            subpath: node1 
+        baseos:
+            name:    node1
+            subpath: node1 
+        depth_test:
+            level_1:
+                name:            node1
+                level_2:
+                    name:        node1
+                    level_3:
+                        name:    node1
+
+  provision_no2:
+    boot_iso:        node2
+    repo_iso:        node2
+    bad_variable:    bad_variable
+    repos:
+        appstream:
+            name:    node2
+            subpath: node2 
+        baseos:
+            name:    node2
+            subpath: node2 
+        depth_test:
+            level_1:
+                name:            node2
+                level_2:
+                    name:        node2
+                    level_3:
+                        name:    node2
+
+  provision_no3:
+    boot_iso:        node3
+    repo_iso:        node3
+    bad_variable:    bad_variable
+    repos:
+        appstream:
+            name:    node3
+            subpath: node3 
+        baseos:
+            name:    node3
+            subpath: node3 
+        depth_test:
+            level_1:
+                name:            node3
+                level_2:
+                    name:        node3
+                    level_3:
+                        name:    node3
+

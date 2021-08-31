@@ -1,0 +1,42 @@
+pg_default_platform:
+
+  platform_no1:
+    default:      default
+    location:     default
+    department:   default 
+    lifecycle:    default
+    network: 
+      network:    default
+      netmask:    default
+      gateway:    default
+      nameserver: default
+      timeserver: default
+      default:    default
+
+  platform_no2:
+    default:      default
+    location:     default
+    department:   default 
+    lifecycle:    default
+    network: 
+      network:    default
+      netmask:    default
+      gateway:    default
+      nameserver: default
+      timeserver: default
+      default:    default
+
+  platform_no3:
+    default:      default
+    location:     default
+    department:   default 
+    lifecycle:    default
+    network: 
+      network:    default
+      netmask:    default
+      gateway:    default
+      nameserver: default
+      timeserver: default
+      default:    default
+
+

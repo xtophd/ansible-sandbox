@@ -1,0 +1,36 @@
+pg_config_platform:
+
+  platform_no1:
+    location:     node1
+    department:   node1 
+    lifecycle:    node1
+    network: 
+      network:    node1
+      netmask:    node1
+      gateway:    node1
+      nameserver: node1
+      timeserver: node1
+
+  platform_no2:
+    location:     node2
+    department:   node2 
+    lifecycle:    node2
+    network: 
+      network:    node2
+      netmask:    node2
+      gateway:    node2
+      nameserver: node2
+      timeserver: node2
+
+  platform_no3:
+    location:     node3
+    department:   node3 
+    lifecycle:    node3
+    network: 
+      network:    node3
+      netmask:    node3
+      gateway:    node3
+      nameserver: node3
+      timeserver: node3
+
+

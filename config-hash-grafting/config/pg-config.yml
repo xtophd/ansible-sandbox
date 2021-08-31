@@ -1,0 +1,16 @@
+pg_config:
+
+  debug: true
+
+  hostname: "{{ inventory_hostname }}"
+
+  spec_selection:
+    machine:   "{{ pg_machine_spec }}"
+    platform:  "{{ pg_platform_spec }}"
+    provision: "{{ pg_provision_spec }}"
+
+#  spec:
+#    machine:
+#    provision:
+#    platform:
+

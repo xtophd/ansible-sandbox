@@ -1,0 +1,20 @@
+pg_config_machine:
+
+  machine_no1:
+    method:   node1
+    platform: node1
+    network:  node1
+    storage:  node1
+
+  machine_no2:
+    method:   node2
+    platform: node2
+    network:  node2
+    storage:  node2
+
+  machine_no3:
+    method:   node3
+    platform: node3
+    network:  node3
+    storage:  node3
+
